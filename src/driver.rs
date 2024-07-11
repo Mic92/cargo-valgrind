@@ -20,7 +20,7 @@ const HOST_PREFIX: &[u8] = b"host: ";
 pub fn driver() -> io::Result<bool> {
     /* get path of `rustc` */
     let cargo = env::var_os("CARGO").expect("CARGO environment variable is not set");
-    let rustc = Path::new(&cargo).with_file_name("rustc");
+    let rustc = Path::new("rustc");
 
     /* get the output of `rustc -vV` */
     let rustc_info = Command::new(rustc).arg("-vV").output()?.stdout;
